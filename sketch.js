@@ -17,49 +17,76 @@ var box2_1, box2_2, box2_3;
 var box3_1, box3_2, box3_3, box3_4, box3_5;
 
 var rope;
+var polyImage;
 
-var color;
-
+function preload(){
+    polyImage = loadImage("polygon.png");
+}
 function setup(){
-    var canvas = createCanvas(1200,700);
+    var canvas = createCanvas(1300,700);
+
+    engine = Engine.create();
+    world = engine.world;
+
+    poly = Bodies.circle(200,500, 25);
+    World.add(world, poly);
+
+    rope = new Rope(poly,{x:200, y:500});
 
     mainGround = new Ground(width/2, 690, 1200, 20);
-    ground1 = new Ground(800, 500, 400, 10);
-    ground2 = new Ground(1000, 340, 300, 10);
+    ground1 = new Ground(600, 500, 400, 10);
+    ground2 = new Ground(1050, 340, 300, 10);
 
-    color = ("#67D1EA");
-    block4_1 = new Block(625, 415);
-    block4_2 = new Block(675, 415);
-    block4_3 = new Block(725, 415);
-    block4_4 = new Block(875, 415);
-    block4_5 = new Block(925, 415);
-    block4_6 = new Block(955, 415);
-    block4_7 = new Block(1025, 415);
+    fill("#67D1EA");
+    block4_1 = new Block(425, 475);
+    block4_2 = new Block(475, 475);
+    block4_3 = new Block(525, 475);
+    block4_4 = new Block(575, 475);
+    block4_5 = new Block(625, 475);
+    block4_6 = new Block(675, 475);
+    block4_7 = new Block(725, 475);
 
-    //box3_1 = new Block()
+    fill("#FFBEC4");
+    block3_1 = new Block(525, 425);
+    block3_2 = new Block(575, 425);
+    block3_3 = new Block(625, 425);
+    block3_4 = new Block(675, 425);
+    block3_5 = new Block(725, 425);
 
-    color = ("#FFBEC4");
-    block3_1 = new Block(675, 335);
-    block3_2 = new Block(625, 335);
-    block3_3 = new Block(725, 335);
-    block3_4 = new Block(775, 335);
-    block3_5 = new Block(825, 335);
+    fill("#00E4D0");
+    block2_1 = new Block(625, 375);
+    block2_2 = new Block(675, 375);
+    block2_3 = new Block(725, 375);
 
-    
-    
-    color = ("#00E4D0");
-    block2_1 = new Block(725, 255);
-    block2_2 = new Block(775, 255);
-    block2_3 = new Block(825, 255);
+    fill("#807D78");
+    block1_1 = new Block(725, 325);
 
-    color = ("#807D78");
-    block1_1 = new Block(775, 175);
+    box3_1 = new Block(950, 315);
+    box3_2 = new Block(1000, 315);
+    box3_3 = new Block(1050, 315);
+    box3_4 = new Block(1100, 315);
+    box3_5 = new Block(1150, 315);
+
+    box2_1 = new Block(1000, 290);
+    box2_2 = new Block(1050, 290);
+    box2_3 = new Block(1100, 290);
+
+    box1_1 = new Block(1050, 265);
 }
 
 function draw(){
     background("#3C2E2E");
 
     Engine.update(engine);
+
+    mainGround.display();
+    ground1.display();
+    ground2.display();
+
+    imageMode(CENTER);
+    image(polyImage, poly.position.x, poly.position.y, 50,50);
+
+    rope.display();
 
     block1_1.display();
 
@@ -81,4 +108,22 @@ function draw(){
     block4_6.display();
     block4_7.display();
 
+    box3_1.display();
+    box3_2.display();
+    box3_3.display();
+    box3_4.display();
+    box3_5.display();
+
+    box2_1.display();
+    box2_2.display();
+    box2_3.display();
+
+    box1_1.display();
+
+}
+function mouseReleased(){
+    rope.fly();
+}
+function mouseDragged(){
+    Matter.Body.setPosition(poly, {x: mouseX, y: mouseY});
 }

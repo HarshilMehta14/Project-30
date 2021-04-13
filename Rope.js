@@ -9,7 +9,7 @@ class Rope
             stiffness : 0.04,
             length : 10,
         }
-        this.body = Constraint.create(option_constraint);
+        this.Sling = Constraint.create(option_constraint);
         World.add(world,this.Sling);
         this.image = loadImage("polygon.png");
 
@@ -19,10 +19,11 @@ class Rope
         var pointA = this.Sling.bodyA.position;
         var pointB = this.Sling.pointB;
 
+        if(this.Sling.bodyA){
         stroke(255);
         strokeWeight(8);
-        line(pointA.x-20,pointA.y,pointB.x-10,pointB.y);
-        line(pointA.x-20,pointA.y,pointB.x+20,pointB.y);
+        line(pointA.x,pointA.y,pointB.x,pointB.y);
+        }
     }
         
     fly()
