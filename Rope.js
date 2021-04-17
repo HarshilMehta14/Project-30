@@ -16,10 +16,11 @@ class Rope
     }
     display()
     {
-        var pointA = this.Sling.bodyA.position;
+        
+        if(this.Sling.bodyA){
+        var pointA = this.Sling.position;
         var pointB = this.Sling.pointB;
 
-        if(this.Sling.bodyA){
         stroke(255);
         strokeWeight(8);
         line(pointA.x,pointA.y,pointB.x,pointB.y);
