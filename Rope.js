@@ -18,7 +18,7 @@ class Rope
     {
         
         if(this.Sling.bodyA){
-        var pointA = this.Sling.position;
+        var pointA = this.Sling.bodyA.position;
         var pointB = this.Sling.pointB;
 
         stroke(255);

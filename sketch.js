@@ -49,17 +49,17 @@ function setup(){
     block4_6 = new Block(675, 475);
     block4_7 = new Block(725, 475);
 
-    block3_1 = new Block(525, 425);
-    block3_2 = new Block(575, 425);
-    block3_3 = new Block(625, 425);
-    block3_4 = new Block(675, 425);
-    block3_5 = new Block(725, 425);
+    block3_1 = new Block(475, 425);
+    block3_2 = new Block(525, 425);
+    block3_3 = new Block(575, 425);
+    block3_4 = new Block(625, 425);
+    block3_5 = new Block(675, 425);
 
-    block2_1 = new Block(625, 375);
-    block2_2 = new Block(675, 375);
-    block2_3 = new Block(725, 375);
+    block2_1 = new Block(525, 375);
+    block2_2 = new Block(575, 375);
+    block2_3 = new Block(625, 375);
 
-    block1_1 = new Block(725, 325);
+    block1_1 = new Block(575, 325);
 
     box3_1 = new Block(950, 315);
     box3_2 = new Block(1000, 315);
