@@ -127,9 +127,21 @@ function draw(){
     box3_5.display();
 
 }
-function mouseReleased(){
+function mouseReleased()
+{
     rope.fly();
 }
-function mouseDragged(){
+
+function mouseDragged()
+{
     Matter.Body.setPosition(poly,{x: mouseX, y: mouseY});
+}
+
+function keyPressed()
+{
+    if(keyCode === 32)
+    {
+        rope.attach(poly);
+
+    }
 }
